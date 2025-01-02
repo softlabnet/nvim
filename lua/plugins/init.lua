@@ -40,7 +40,7 @@ return {
         "eslint-lsp",
         "gopls",
         "js-debug-adapter",
-        "typescript-language-server",
+        "ts_ls",
       },
     },
   },
@@ -108,13 +108,32 @@ return {
       require("blame").setup {}
     end,
     opts = {
+      date_format = "%d.%m.%Y",
+      virtual_style = "left_align",
+      focus_blame = true,
+      merge_consecutive = false,
+      max_summary_width = 30,
+      colors = nil,
       blame_options = { "-w" },
+      commit_detail_view = "vsplit",
+      mappings = {
+        commit_info = "i",
+        stack_push = "<TAB>",
+        stack_pop = "<BS>",
+        show_commit = "<CR>",
+        close = { "<esc>", "q" },
+      },
     },
   },
   {
     "braxtons12/blame_line.nvim",
+    lazy = false,
     config = function()
       require("blame_line").setup {}
     end,
   },
+  --{
+  --  "Exafunction/codeium.vim",
+  --  lazy = false,
+  --},
 }
