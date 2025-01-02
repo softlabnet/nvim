@@ -51,3 +51,16 @@ for _, lsp in ipairs(servers) do
     },
   }
 end
+
+require("lspconfig").phpactor.setup {
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+  init_options = { 
+    ["language_server.diagnostics_on_update"] = false,
+    ["language_server.diagnostics_on_open"] = false,
+    ["language_server.diagnostics_on_save"] = false,
+    ["language_server_phpstan.enabled"] = false,
+    ["language_server_psalm.enabled"] = false,
+  }
+}  
